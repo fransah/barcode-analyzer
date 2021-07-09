@@ -20,12 +20,8 @@ interface BarcodeHandler {
 And an exaple implementation:
 ```kotlin
 class SomeBarcodeHandler: BarcodeHandler {
-
-    companion object {
-        val barcodeType: BarcodeType = BarcodeType.SOME
-    }
-
-    override fun canHandle(type: BarcodeType): Boolean = barcodeType == type
+    
+    override fun canHandle(type: BarcodeType): Boolean = BarcodeType.SOME == type
 
     override fun handle(intent: Intent): BarcodeData {
         val parsedData = mutableMapOf<String, Any>()
