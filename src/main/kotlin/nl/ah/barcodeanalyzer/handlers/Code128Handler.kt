@@ -8,13 +8,7 @@ import org.springframework.stereotype.Component
 @Component
 class Code128Handler: BarcodeHandler {
 
-    companion object {
-        val barcodeType: BarcodeType = BarcodeType.CODE128
-    }
-
-    override fun canHandle(type: BarcodeType): Boolean {
-        return barcodeType == type
-    }
+    override fun canHandle(type: BarcodeType): Boolean = BarcodeType.CODE128 == type
 
     override fun handle(intent: Intent): BarcodeData {
         val parsedData = mutableMapOf<String, Any>()

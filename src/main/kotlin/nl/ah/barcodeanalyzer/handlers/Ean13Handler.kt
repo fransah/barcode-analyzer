@@ -8,13 +8,7 @@ import org.springframework.stereotype.Component
 @Component
 class Ean13Handler: BarcodeHandler {
 
-    companion object {
-        val barcodeType: BarcodeType = BarcodeType.EAN13
-    }
-
-    override fun canHandle(type: BarcodeType): Boolean {
-        return barcodeType == type
-    }
+    override fun canHandle(type: BarcodeType): Boolean = BarcodeType.EAN13 == type
 
     override fun handle(intent: Intent): BarcodeData {
         val parsedData = mutableMapOf<String, Any>()
